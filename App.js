@@ -104,15 +104,44 @@ import { StyleSheet, Text, View } from 'react-native';
 
 // new
 // App.js
+// import React from 'react';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
+
+// // Import your screens
+// import AuthScreen from './screens/AuthScreen';
+// import SignupScreen from './screens/SignupScreen';
+// import FamilyFeedScreen from './screens/FamilyFeedScreen';
+// import ProfileScreen from './screens/ProfileScreen';
+
+// const Stack = createStackNavigator();
+
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator initialRouteName="Auth">
+//         <Stack.Screen name="Auth" component={AuthScreen} options={{ title: 'Login / Sign Up' }} />
+//         <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Create Account' }} />
+//         <Stack.Screen name="FamilyFeed" component={FamilyFeedScreen} options={{ title: 'Family Connection' }} />
+//         <Stack.Screen name="Profile" component={ProfileScreen} options={{ title: 'Profile' }} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+
+
+// App.js
+import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-// Import your screens
 import AuthScreen from './screens/AuthScreen';
-import SignupScreen from './screens/SignupScreen';
+import FamilyGroupScreen from './screens/FamilyGroupScreen';
 import FamilyFeedScreen from './screens/FamilyFeedScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import SignupScreen from './screens/SignupScreen';
 
 const Stack = createStackNavigator();
 
@@ -121,8 +150,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Auth">
         <Stack.Screen name="Auth" component={AuthScreen} options={{ title: 'Login / Sign Up' }} />
-        <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Create Account' }} />
-        <Stack.Screen name="FamilyFeed" component={FamilyFeedScreen} options={{ title: 'Family Connection' }} />
+        <Stack.Screen name="Signup" component={SignupScreen} options={{ title: 'Sign Up' }} />
+        <Stack.Screen name="FamilyGroup" component={FamilyGroupScreen} options={{ title: 'Family Group' }} />
+        <Stack.Screen name="FamilyFeed" component={FamilyFeedScreen} options={{ title: 'Family Feed' }} />
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ title: 'Profile' }} />
       </Stack.Navigator>
     </NavigationContainer>
