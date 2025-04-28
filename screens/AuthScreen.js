@@ -46,6 +46,7 @@ export default function AuthScreen({ navigation }) {
             <View style={styles.buttonContainer}>
                 <Button title="Login" onPress={handleLogin} />
                 <Button title="Don't have an account? Sign Up" onPress={() => navigation.navigate('Signup')} />
+                <Button title="Go to Test Screen" onPress={() => navigation.navigate('TestImagePicker')} />
             </View>
 
         </View>

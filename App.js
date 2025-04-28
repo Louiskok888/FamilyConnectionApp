@@ -142,6 +142,7 @@ import FamilyGroupScreen from './screens/FamilyGroupScreen';
 import FamilyFeedScreen from './screens/FamilyFeedScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SignupScreen from './screens/SignupScreen';
+import TestImagePickerScreen from './screens/TestImagePickerScreen'; // Import test screen
 
 const Stack = createStackNavigator();
 
@@ -154,6 +155,7 @@ export default function App() {
         <Stack.Screen name="FamilyGroup" component={FamilyGroupScreen} options={{ title: 'Family Group' }} />
         <Stack.Screen name="FamilyFeed" component={FamilyFeedScreen} options={{ title: 'Family Feed' }} />
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ title: 'Profile' }} />
+        <Stack.Screen name="TestImagePicker" component={TestImagePickerScreen} options={{ title: 'Test Image Picker' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
