@@ -1181,16 +1181,16 @@
 
 // new
 import React, { useEffect, useState } from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  Button, 
-  ActivityIndicator, 
-  FlatList, 
-  Alert, 
-  Modal, 
-  TextInput, 
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  ActivityIndicator,
+  FlatList,
+  Alert,
+  Modal,
+  TextInput,
   TouchableOpacity,
   Image
 } from 'react-native';
@@ -1235,7 +1235,7 @@ export default function ProfileScreen({ navigation }) {
         console.error("Error fetching family groups:", error);
         setLoading(false);
       });
-      
+
       // Clean up the subscription on unmount
       return () => unsubscribe();
     } else {
@@ -1344,19 +1344,25 @@ export default function ProfileScreen({ navigation }) {
           {user.displayName && <Text style={styles.info}>Username: {user.displayName}</Text>}
 
           <View style={styles.buttonContainer}>
-            <Button title="Set Username" onPress={() => {
-              setNewUsername(user.displayName || '');
-              setIsEditingUsername(true);
-            }} />
-            <Button title="Reset Password" onPress={handleResetPassword} />
-            <Button title="Upload Profile Picture" onPress={handleUploadProfilePicture} />
+            <View style={styles.buttonWrapper}>
+              <Button title="Set Username" onPress={() => {
+                setNewUsername(user.displayName || '');
+                setIsEditingUsername(true);
+              }} />
+            </View>
+            <View style={styles.buttonWrapper}>
+              <Button title="Reset Password" onPress={handleResetPassword} />
+            </View>
+            <View style={styles.buttonWrapper}>
+              <Button title="Upload Profile Picture" onPress={handleUploadProfilePicture} />
+            </View>
           </View>
 
           <Text style={styles.subtitle}>Family Groups Joined</Text>
           {familyGroups.length === 0 ? (
             <Text>You have not joined any family groups yet.</Text>
           ) : (
-            <FlatList 
+            <FlatList
               data={familyGroups}
               keyExtractor={(item) => item.id}
               renderItem={({ item }) => (
@@ -1448,11 +1454,17 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexWrap: 'wrap', // Optional: allows wrapping on smaller screens
+    justifyContent: 'space-between',
     width: '100%',
     marginBottom: 20,
   },
-  profileImage: {
+  buttonWrapper: {
+    flex: 1,
+    marginHorizontal: 5,
+    marginVertical: 5, // Optional: adds vertical spacing too
+  },
+    profileImage: {
     width: 100,
     height: 100,
     borderRadius: 50,

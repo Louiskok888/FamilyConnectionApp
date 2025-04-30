@@ -43,10 +43,13 @@ export default function AuthScreen({ navigation }) {
                 secureTextEntry
             />
 
-            <View style={styles.buttonContainer}>
-                <Button title="Login" onPress={handleLogin} />
-                <Button title="Don't have an account? Sign Up" onPress={() => navigation.navigate('Signup')} />
-                <Button title="Go to Test Screen" onPress={() => navigation.navigate('TestImagePicker')} />
+            <View style={styles.buttonRow}>
+                <View style={styles.buttonWrapper}>
+                    <Button title="Login" onPress={handleLogin} />
+                </View>
+                <View style={styles.buttonWrapper}>
+                    <Button title="Sign Up" onPress={() => navigation.navigate('Signup')} />
+                </View>
             </View>
 
         </View>
@@ -57,10 +60,15 @@ const styles = StyleSheet.create({
     container: { flex: 1, padding: 20, justifyContent: 'center' },
     title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
     input: { borderWidth: 1, padding: 8, marginBottom: 10, borderRadius: 4 },
-    buttonContainer: {
+    buttonRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        // You can adjust the margin or padding here to suit your design
         marginTop: 10,
+        flexWrap: 'wrap', // allows wrapping on smaller screens
     },
+    buttonWrapper: {
+        flex: 1,
+        marginHorizontal: 5,
+        marginVertical: 5,
+    }
 });
